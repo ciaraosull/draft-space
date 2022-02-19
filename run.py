@@ -143,7 +143,7 @@ class Coder:
         Generate random secret code here
         """
         random_nums = []
-        for i in range(4):
+        for nums in range(4):
             random_nums.append(random.randint(1, max_range))
         return random_nums
 
@@ -151,9 +151,9 @@ class Coder:
         """
         Finds the position of the matched numbers
         """
-        for i in range(0, 4):
-            if secret_code[i] == user_guess:
-                return i
+        for nums in range(0, 4):
+            if secret_code[nums] == user_guess:
+                return nums
 
     def calculate_guess(self, secret_code, user_guess):
         """
@@ -247,6 +247,7 @@ def main():
             print(
                 f"You have {Fore.RED}{guess_left}{Fore.RESET} guesses left\n")
             guess_left -= 1
+
             user_guess = Player().start_game()
             Coder().calculate_guess(secret_code, user_guess)
             Coder().find_position(secret_code, user_guess)
