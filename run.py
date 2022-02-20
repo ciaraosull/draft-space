@@ -131,7 +131,7 @@ class Player:
         return True
 
 
-class Coder:
+class CodeGenerator:
     """
     Initialises instance
     """
@@ -233,7 +233,7 @@ def main():
     welcome()
     Player().get_name()
     Player().game_choice()
-    secret_code = Coder().random_code(10)
+    secret_code = CodeGenerator().random_code(10)
     # for testing only take away print at end
     print(f"The secret code is {secret_code}")
     guess_left = 10
@@ -249,8 +249,8 @@ def main():
             guess_left -= 1
 
             user_guess = Player().start_game()
-            Coder().calculate_guess(secret_code, user_guess)
-            Coder().find_position(secret_code, user_guess)
+            CodeGenerator().calculate_guess(secret_code, user_guess)
+            CodeGenerator().find_position(secret_code, user_guess)
 
 
 if __name__ == "__main__":
